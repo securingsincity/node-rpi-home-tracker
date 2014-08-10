@@ -15,7 +15,7 @@ bleno.on('stateChange', function(state) {
 
         var name = 'James Hrisho';
         var serviceUuids = ['fffffffffffffffffffffffffffffff0']
-          bleno.startAdvertising(name, serviceUuids function(error) {
+          bleno.startAdvertising(name, serviceUuids, function(error) {
             if (error) {
               console.log('fail!');
             }
