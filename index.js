@@ -26,6 +26,11 @@ bleno.on('stateChange', function(state) {
       bleno.stopAdvertising();
     }
 });
+
+
+bleno.on('servicesSet', function() {
+  console.log('on -> servicesSet');
+});
 // bleno.on('accept', function(clientAddress) {
 // console.log('connected -> ' + clientAddress);
 // });
@@ -59,8 +64,11 @@ bleno.on('advertisingStart', function(error) {
                 ]
             })
         ],function(error) {
-          console.log('there was an error setting services');
-          console.log(error);
+          if(error) {
+            console.log('there was an error setting services');
+            console.log(error);
+          }
+
         });
     }
 });

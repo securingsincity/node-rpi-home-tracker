@@ -11,6 +11,7 @@ var onConnect = function(error) {
   } else {
     console.log('connected!');
     self._peripheral.discoverAllServicesAndCharacteristics(function(error, services, characteristics) {
+      console.log('ok');
       if (error === null) {
         console.log("we're looking for services and characteristics");
         for (var i in services) {
