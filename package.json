@@ -1,0 +1,31 @@
+{
+  "name": "node-rpi-home-tracker",
+  "version": "0.0.0",
+  "description": "people tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/securingsincity/node-rpi-home-tracker.git"
+  },
+  "keywords": [
+    "raspberry",
+    "pi",
+    "home",
+    "tracker",
+    "ble"
+  ],
+  "author": "James Hrisho",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/securingsincity/node-rpi-home-tracker/issues"
+  },
+  "homepage": "https://github.com/securingsincity/node-rpi-home-tracker",
+  "dependencies": {
+    "bleno": "^0.1.5",
+    "noble": "^0.3.4"
+  }
+}
