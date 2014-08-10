@@ -1,14 +1,49 @@
 var noble = require('noble');
 
-var serviceUUIDs = ["adabfb006e7d4601bda2bffaa68956ba"]; // default: [] => all
+var serviceUUIDs = ["fffffffffffffffffffffffffffffff0"]; // default: [] => all
 var allowDuplicates = true; // default: false
-
+var self = this;
 noble.startScanning(serviceUUIDs, allowDuplicates); // particular UUID's
+
+var onConnect = function(error) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('connected!');
+    self._peripheral.discoverAllServicesAndCharacteristics(function(error, services, characteristics) {
+      if (error === null) {
+        console.log("we're looking for services and characteristics");
+        for (var i in services) {
+          var service = services[i];
+          console.log(service);
+          this._services[service.uuid] = service;
+        }
+
+        for (var j in characteristics) {
+          var characteristic = characteristics[j];
+          console.log(characteristic);
+          this._characteristics[characteristic.uuid] = characteristic;
+        }
+      } else {
+        console.error(error);
+      }
+    });
+  }
+
+};
+
+
 var onDiscover = function(peripheral) {
   noble.removeListener('discover', onDiscover);
 
   noble.stopScanning();
-  console.log(peripheral);
+  console.log('discovered');
+  //console.log(peripheral);
+
+  self._peripheral = peripheral;
+  self._services = {};
+  self._characteristics = {};
+  self._peripheral.connect(onConnect);
 };
 
 noble.on('discover', onDiscover);

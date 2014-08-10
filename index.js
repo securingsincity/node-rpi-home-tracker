@@ -34,7 +34,7 @@ bleno.on('advertisingStart', function(error) {
     if (!error) {
         bleno.setServices([
             new bleno.PrimaryService({
-                uuid : 'JamesHrisho1',
+                uuid : '180a',
                 characteristics : [
                   new BlenoCharacteristic({
                     uuid: ROOM_ID,
@@ -58,6 +58,9 @@ bleno.on('advertisingStart', function(error) {
                   }),
                 ]
             })
-        ]);
+        ],function(error) {
+          console.log('there was an error setting services');
+          console.log(error);
+        });
     }
 });
