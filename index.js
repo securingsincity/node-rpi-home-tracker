@@ -7,7 +7,7 @@ var HOUSE_ID ='fff0'
 bleno.on('stateChange', function(state) {
     console.log('on -> stateChange: ' + state);
     if (state === 'poweredOn') {
-        var scanData = new Buffer('b1a6752152eb4d36e13e357d7c299999'); // maximum 31 bytes
+        var scanData = new Buffer('kitchen'); // maximum 31 bytes
         var advertisementData = new Buffer('jameshrisho'); // maximum 31 bytes
 
         bleno.startAdvertisingWithEIRData(advertisementData, scanData, function(error) {
