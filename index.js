@@ -1,4 +1,7 @@
 var bleno = require('bleno');
+var BlenoPrimaryService = bleno.PrimaryService;
+var BlenoCharacteristic = bleno.Characteristic;
+var BlenoDescriptor = bleno.Descriptor;
 var houseName = process.env.houseName || 'home';
 var roomName = process.env.roomName || 'kitchen';
 
