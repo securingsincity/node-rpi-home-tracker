@@ -10,20 +10,20 @@ var HOUSE_ID ='fff0'
 bleno.on('stateChange', function(state) {
     console.log('on -> stateChange: ' + state);
     if (state === 'poweredOn') {
-        var scanData = new Buffer('6b69746368656e','hex'); // maximum 31 bytes
-        var advertisementData = new Buffer('6a616d657368726973686f','hex'); // maximum 31 bytes
+      var scanData = new Buffer('6b69746368656e','hex'); // maximum 31 bytes
+      var advertisementData = new Buffer('6a616d657368726973686f','hex'); // maximum 31 bytes
 
-        var name = 'James Hrisho';
-        var serviceUuids = ['fffffffffffffffffffffffffffffff0']
-          bleno.startAdvertising(name, serviceUuids, function(error) {
-            if (error) {
-              console.log('fail!');
-            }
-          });
+      var name = 'James Hrisho';
+      var serviceUuids = ['fffffffffffffffffffffffffffffff0']
+      bleno.startAdvertising(name, serviceUuids, function(error) {
+        if (error) {
+          console.log('fail!');
+        }
+      });
 
-        });
+
     } else {
-        bleno.stopAdvertising();
+      bleno.stopAdvertising();
     }
 });
 // bleno.on('accept', function(clientAddress) {
