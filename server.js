@@ -10,6 +10,7 @@ var onConnect = function(error) {
     console.error(error);
   } else {
     console.log('connected!');
+    console.log(self._peripheral);
     self._peripheral.discoverAllServicesAndCharacteristics(function(error, services, characteristics) {
       console.log('ok');
       if (error === null) {
