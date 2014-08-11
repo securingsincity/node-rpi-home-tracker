@@ -15,7 +15,8 @@ bleno.on('stateChange', function(state) {
 
       var name = 'James';
       var serviceUuids = ['fffffffffffffffffffffffffffffff0']
-      bleno.startAdvertising(name, serviceUuids, function(error) {
+      //bleno.startAdvertising(name, serviceUuids, function(error) {
+      bleno.startAdvertisingWithEIRData(advertisementData, scanData,function(error) {
         if (error) {
           console.log('fail!');
         }
